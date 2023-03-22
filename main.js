@@ -6,6 +6,8 @@ createApp({
       title: 'ToDo List JSON',
 
       todoList: [],
+
+      newText: ''
     }
   },
 
@@ -22,6 +24,20 @@ createApp({
           console.log(error);
           this.todoList = [];
         })
+    },
+
+    saveNewTask() {
+
+      // console.log(this.newText);
+
+      const newTask = {
+        text: this.newText,
+        done: false
+      }
+
+      this.todoList.push(newTask);
+
+      // axios.post('./server.php')
     }
 
   },

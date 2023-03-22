@@ -28,8 +28,8 @@
     </div>
 
     <div class="container d-flex justify-content-center align-items-center">
-      <input type="text" class="form-control w-25" placeholder="Inserisci nuovo Task">
-      <button type="submit" class="btn btn-warning">Inserisci</button>
+      <input type="text" class="form-control w-25" placeholder="Inserisci nuovo Task" name="task" v-model="newText" @keyup.enter="saveNewTask">
+      <button type="submit" class="btn btn-warning" @click="saveNewTask">Inserisci</button>
     </div>
 
   </div>
