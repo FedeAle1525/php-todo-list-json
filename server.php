@@ -37,7 +37,7 @@ $todo_list = json_decode($list_string, true);
 // Reucpero il nuovo Task inviato al Server dal metodo "post"
 $new_task = isset($_POST) ? $_POST : null;
 
-if ($new_task !== null) {
+if ($new_task !== null && $new_task !== []) {
   $todo_list[] = $new_task;
 }
 
