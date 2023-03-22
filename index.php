@@ -14,7 +14,13 @@
 <body>
 
   <div id="app">
-    <h1> {{ title }}</h1>
+    <h1 class="text-center"> {{ title }} </h1>
+
+    <ul>
+      <li v-for="task in todoList">
+        {{ task.text }}
+      </li>
+    </ul>
   </div>
 
   <script src="./main.js"></script>
