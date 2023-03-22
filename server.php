@@ -1,5 +1,6 @@
 <?php
 
+// Array Associativo Multidimensionale
 $tasks = [
   [
     "text" => "Prepararsi per la lezione",
@@ -26,3 +27,9 @@ $tasks = [
     "done" => false
   ]
 ];
+
+// Modifico un campo dell'Header di Risposta del Server, specificando il linguaggio utilizzato
+header("Content-Type: application/json");
+
+// Sto inviando Risposta del Server in linguaggio JSON, trasformando l'Array PHP in una Stringa JSON
+echo json_encode($tasks);
