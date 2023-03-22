@@ -14,13 +14,24 @@
 <body>
 
   <div id="app">
-    <h1 class="text-center"> {{ title }} </h1>
+    <div class="container">
+      <h1 class="text-center py-4"> {{ title }} </h1>
+    </div>
 
-    <ul>
-      <li v-for="task in todoList">
-        {{ task.text }}
-      </li>
-    </ul>
+    <div class="container d-flex justify-content-center">
+      <ul class="list-unstyled border border-success rounded py-2 px-2 w-50">
+        <li class="my-2" v-for="task in todoList">
+          {{ task.text }}
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="container d-flex justify-content-center align-items-center">
+      <input type="text" class="form-control w-25" placeholder="Inserisci nuovo Task">
+      <button type="submit" class="btn btn-warning">Inserisci</button>
+    </div>
+
   </div>
 
   <script src="./main.js"></script>
