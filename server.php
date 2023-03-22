@@ -34,6 +34,19 @@ $list_string = file_get_contents('./todolist.json');
 // Decodifico la Stringa da codice JSON a PHP
 $todo_list = json_decode($list_string, true);
 
+// Reucpero il nuovo Task inviato al Server dal metodo "post"
+$new_task = isset($_POST) ? $_POST : null;
+
+if ($new_task !== null) {
+  $todo_list[] = $new_task;
+}
+
+// Creo una nuova Stringa di dati (decodificando da PHP a JSON), aggiornata con l'inserimento del nuovo Task
+$new_list_string = json_encode($todo_list);
+
+// Aggiorno il file.json (sovrascrive), inserendo la nuova Stringa di dati (JSON)
+file_put_contents('./todolist.json', $new_list_string);
+
 // Modifico un campo dell'Header di Risposta del Server, specificando il linguaggio utilizzato
 header("Content-Type: application/json");
 

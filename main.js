@@ -26,18 +26,36 @@ createApp({
         })
     },
 
+    // Metodo per aggiungere un nuovo Task
     saveNewTask() {
 
-      // console.log(this.newText);
+      //1 - Aggiungere nuovo Task nella versione Client Side
+      // const newTask = {
+      //   text: this.newText,
+      //   done: false
+      // }
+      // this.todoList.push(newTask);
 
-      const newTask = {
+      //2 - Aggiungere nuovo Task nella versione Server Side
+      $newTask = {
         text: this.newText,
         done: false
       }
 
-      this.todoList.push(newTask);
-
-      // axios.post('./server.php')
+      // Invio Dati (newTask) al Server tramite metodo "post", configurando l'Header della Richiesta
+      axios.post('./server.php', $newTask, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }
+      })
+        .then((res) => {
+          this.todoList = res.data;
+          this.newText = '';
+        })
+        .catch((error) => {
+          console.log(error);
+          this.todoList = [];
+        })
     }
 
   },
