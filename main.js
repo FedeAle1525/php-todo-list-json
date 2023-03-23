@@ -37,13 +37,17 @@ createApp({
       // this.todoList.push(newTask);
 
       //2 - Aggiungere nuovo Task nella versione Server Side
-      const newTask = {
-        text: this.newText,
-        done: false
+      // const newTask = {
+      //   text: this.newText,
+      //   done: false
+      // }
+
+      const data = {
+        newText: this.newText.trim()
       }
 
       // Invio Dati (newTask) al Server tramite metodo "post", configurando l'Header della Richiesta
-      axios.post('./server.php', newTask, {
+      axios.post('./server.php', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         }
